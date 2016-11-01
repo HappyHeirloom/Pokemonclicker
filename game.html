@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title> Home </title>
+<head>
+  <link rel="stylesheet" type="text/css" href="Style.css">
+  <link rel="stylesheet" type="text/css" href="animate.css">
+  <script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <ul>
+      <li><a class="active" href="../index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Pokemon accounts</a>
+        <div class="dropdown-content">
+          <a href="../RioPixel.html">RioPixel</a>
+          <a href="/Hjemmeside/Noimista.html">Noimista</a>
+          <a href="/Hjemmeside/MrsAmazing.html">MrsAmazing</a>
+          <a href="/Hjemmeside/TheRealBeami.html">TheRealBeami</a>
+        <li class="spil"><a class="spila" href="./game.html">Game</a></li>
+        </div>
+      </li>
+    </ul>
+
+    <center>
+
+      <div class="top">
+        <h2>Pokéclicker</h2>
+      </div>
+      <div class="wrapper">
+
+
+        <div class="left">
+
+            <div id="stats">
+              <div id="maydiv"></div>
+              <div id="ratediv"></div>
+              <div id="strengthdiv"></div>
+
+            </div>
+        </div>
+
+
+        <div class="right">
+          <img src="Egg.png" class="clicker" height="250px;" width="250px;" />
+        </div>
+
+      </div>
+      <div id="bottomshop">
+
+
+      </div>
+
+      <script>
+      var pokemons = [
+        [0,"rattata",100,0,2],
+        [1,"charmander",500,2,0],
+        [2,"charmeleon",1000,5,0],
+        [3,"charizard",5000,10,0],
+        [4,"hitmonchan",20000,5,5],
+        [5,"hitmonlee",20000,15,1],
+        [6,"pichu",50000,30,2],
+        [7,"pikachu",100000,55,2],
+        [8,"raichu",220000,70,3],
+        [9,"megacharizard",750000,230,15],
+        [10,"megablaziken",1500000,560,32]
+      ]
+      var i = 0;
+      var text = "";
+
+      for (;pokemons[i];) {
+          text += "<div class='pokemon' style='background-image:url("+pokemons[i][1]+".png)' id="+pokemons[i][0]+"><div id='pokeprice' name='"+pokemons[i][0]+"'>"+pokemons[i][2]+"</div></div>";
+          i++;
+      }
+      document.getElementById("bottomshop").innerHTML = text;
+      </script>
+      <script>
+
+      $(".clicker").click(function(){
+        click();
+      });
+      $(".pokemon").click(function(){
+        var type = this.id;
+        buypokemon(type);
+      });
+      var points = 0;
+      var clickstrenght = 1;
+      var clickrate = 0;
+
+      function buypokemon(type){
+        var price = pokemons[type][2];
+        if(points >= price) {
+          points = points-price;
+          clickrate += pokemons[type][3]/10;
+          clickstrenght += pokemons[type][4];
+          pokemons[type][2] = Math.round(pokemons[type][2]*1.25);
+        }
+    }
+      function click() {
+        //$(".clicker").addClass("shake animated");
+
+        getpoint(clickstrenght);
+        //$('.clicker').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+          //$(".clicker").removeClass("shake animated");
+        //});
+
+      }
+      function getpoint(strength) {
+        points += strength;
+
+      }
+
+      var i = setInterval(function() {
+        points += clickrate/10;
+
+        document.getElementById('maydiv').innerHTML = "<h2>Points: " +Math.round(points);
+        document.getElementById('ratediv').innerHTML = "<h2>Rate: " +clickrate*10+"/s";
+        document.getElementById('strengthdiv').innerHTML = "<h2>Strength: " +clickstrenght;
+        for(i = 0; i < pokemons.length; i++){
+          $('.pokemon').find('#pokeprice').each(function() {
+
+            if(pokemons[i][0] == $(this).attr('name')){
+              if(pokemons[i][2] != $(this).html()){
+                $(this).replaceWith("<div id='pokeprice' name='"+pokemons[i][0]+"'>"+pokemons[i][2]+"</div>");
+            }
+          }
+          });
+
+          if(points >= pokemons[i][2]) {
+            document.getElementById(pokemons[i][0]).style.color = "green";
+          }else{
+            document.getElementById(pokemons[i][0]).style.color = "red";
+          }
+
+        }
+      },10);
+
+      </script>
+
+    </center>
+
+</body>
+</html>
