@@ -92,7 +92,7 @@
         var price = pokemons[type][2];
         if(points >= price) {
           points = points-price;
-          clickrate += Math.round(pokemons[type][3]/10);
+          clickrate += pokemons[type][3]/10;
           clickstrenght += pokemons[type][4];
           pokemons[type][2] = Math.round(pokemons[type][2]*1.25);
         }
@@ -112,7 +112,7 @@
       }
 
       var i = setInterval(function() {
-        points += Math.round(clickrate/10);
+        points += clickrate/10;
 
         document.getElementById('maydiv').innerHTML = "<h2>Points: " +Math.round(points);
         document.getElementById('ratediv').innerHTML = "<h2>Rate: " +Math.round(clickrate*10+"/s");
@@ -137,6 +137,19 @@
       },10);
 
       </script>
+
+      <script>
+        function savePoints(points) {
+          localStorage.getItem("points");
+          points = localStorage.setItem(localStorage.getItem("points"));
+          if(points = ) {
+            localStorage.getItem("points");
+          } else {
+            localStorage.setItem("points") = 0;
+          }
+        }
+      </script>
+
 
     </center>
 
