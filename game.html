@@ -53,6 +53,50 @@
 
       </div>
 
+      <div id="specs">
+        <button id="myBtn">See Specs</button>
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">×</span>
+            <p>
+              <table class="tableizer-table">
+              <thead><tr class="tableizer-firstrow">
+              <th>Pokemon</th><th>Rate</th><th>Strenght</th></tr></thead><tbody>
+               <tr><td>1</td><td>1</td><td>1</td></tr>
+               <tr><td>2</td><td>1</td><td>1</td></tr>
+               <tr><td>3</td><td>1</td><td>1</td></tr>
+               <tr><td>4</td><td>1</td><td>1</td></tr>
+               <tr><td>5</td><td>1</td><td>1</td></tr>
+               <tr><td>6</td><td>1</td><td>1</td></tr>
+               <tr><td>7</td><td>1</td><td>1</td></tr>
+               <tr><td>8</td><td>1</td><td>1</td></tr>
+               <tr><td>9</td><td>1</td><td>1</td></tr>
+               <tr><td>10</td><td>1</td><td>1</td></tr>
+               <tr><td>11</td><td>1</td><td>1</td></tr>
+              </tbody></table>
+            </p>
+          </div>
+        </div>
+
+        <script>
+          var modal = document.getElementById('myModal');
+          var btn = document.getElementById("myBtn");
+          var span = document.getElementsByClassName("close")[0];
+
+          btn.onclick = function() {
+              modal.style.display = "block";
+          }
+          span.onclick = function() {
+              modal.style.display = "none";
+          }
+          window.onclick = function(event) {
+              if (event.target == modal) {
+                  modal.style.display = "none";
+              }
+          }
+        </script>
+      </div>
+
       <script>
       var pokemons = [
         [0,"rattata",100,0.1,0.5],

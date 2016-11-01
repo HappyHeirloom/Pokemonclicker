@@ -113,10 +113,10 @@ li.dropdown {
 #bottomshop {
   bottom:0px;
   position: absolute;
-
   height:100px !important;
   text-align:left;
 }
+
 .pokemon {
   display:inline-block;
   width:100px;
@@ -151,10 +151,8 @@ li.dropdown {
 #stats {
   padding-top:25px;
   text-align:left;
-  width:200px; e
+  width:200px;
   height:auto;
-
-
 }
 .clicker{
   border-radius:125px;
@@ -176,4 +174,66 @@ li.dropdown {
   margin-right:20px;
   color:red;
   background-size: cover;
+}
+
+#specs {
+  top: 80%;
+  position: absolute;
+  height:100px !important;
+  text-align:left;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    min-width: 15%;
+    max-width: 30%;
+    width: auto;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+table.tableizer-table {
+  font-size: 12px;
+  border: 1px solid #CCC;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.tableizer-table td {
+  padding: 4px;
+  margin: 3px;
+  border: 1px solid #CCC;
+}
+.tableizer-table th {
+  background-color: #C05097;
+  color: #FFF;
+  font-weight: bold;
 }
