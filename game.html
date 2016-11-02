@@ -6,7 +6,7 @@
 <head>
   <link rel="stylesheet" type="text/css" href="Style.css">
   <link rel="stylesheet" type="text/css" href="animate.css">
-  <script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
+  <script   src="http://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -60,20 +60,17 @@
             <span class="close">×</span>
             <p>
               <table class="tableizer-table">
-              <thead><tr class="tableizer-firstrow">
-              <th>Pokemon</th><th>Rate</th><th>Strenght</th></tr></thead><tbody>
-               <tr><td>1</td><td>1</td><td>1</td></tr>
-               <tr><td>2</td><td>1</td><td>1</td></tr>
-               <tr><td>3</td><td>1</td><td>1</td></tr>
-               <tr><td>4</td><td>1</td><td>1</td></tr>
-               <tr><td>5</td><td>1</td><td>1</td></tr>
-               <tr><td>6</td><td>1</td><td>1</td></tr>
-               <tr><td>7</td><td>1</td><td>1</td></tr>
-               <tr><td>8</td><td>1</td><td>1</td></tr>
-               <tr><td>9</td><td>1</td><td>1</td></tr>
-               <tr><td>10</td><td>1</td><td>1</td></tr>
-               <tr><td>11</td><td>1</td><td>1</td></tr>
-              </tbody></table>
+                <thead>
+                  <tr class="tableizer-firstrow">
+                    <th>Pokemon</th>
+                    <th>Rate</th>
+                    <th>Strenght</th>
+                  </tr>
+                </thead>
+                <tbody id="specstable">
+
+                </tbody>
+              </table>
             </p>
           </div>
         </div>
@@ -116,6 +113,18 @@
 
       for (;pokemons[i];) {
           text += "<div class='pokemon' style='background-image:url("+pokemons[i][1]+".png)' id="+pokemons[i][0]+"><div id='pokeprice' name='"+pokemons[i][0]+"'>"+pokemons[i][2]+"</div></div>";
+          var select = $("#specstable");
+          var tr = document.createElement('tr');
+          select.append(tr);
+          var pokename = document.createElement('td');
+          pokename.innerHTML = pokemons[i][1];
+          var rate = document.createElement('td');
+          rate.innerHTML = pokemons[i][3];
+          tr.append(pokename);
+          var strength = document.createElement('td');
+          strength.innerHTML = pokemons[i][4];
+          tr.append(rate);
+          tr.append(strength);
           i++;
       }
       document.getElementById("bottomshop").innerHTML = text;
