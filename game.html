@@ -169,8 +169,8 @@
         points += clickrate/10;
 
         document.getElementById('maydiv').innerHTML = "<h2>Points: " +Math.round(points);
-        document.getElementById('ratediv').innerHTML = "<h2>Rate: " +clickrate*10+"/s";
-        document.getElementById('strengthdiv').innerHTML = "<h2>Strength: " +clickstrenght;
+        document.getElementById('ratediv').innerHTML = "<h2>Rate: " +Math.round(clickrate*10)+"/s";
+        document.getElementById('strengthdiv').innerHTML = "<h2>Strength: " +Math.round(clickstrenght);
         for(i = 0; i < pokemons.length; i++){
           $('.pokemon').find('#pokeprice').each(function() {
 
