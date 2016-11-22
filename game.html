@@ -198,15 +198,14 @@
       </script>
 
       <script>
-        function savePoints(points) {
+      function savePoints(points) {
+        localStorage.getItem("points");
+        points = localStorage.setItem(localStorage.getItem("points"));
+        if(points = ) {
+        if(points <= 0) {
           localStorage.getItem("points");
-          points = localStorage.setItem(localStorage.getItem("points"));
-          if(points <= 0) {
-            localStorage.getItem("points");
-          } else {
-            localStorage.setItem("points") = 0;
-          }
-        }
+        } else {
+          localStorage.setItem("points") = 0;
       </script>
 
 
