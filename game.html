@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <title> Poké-clicker </title>
 <head>
-  <link rel="stylesheet" type="text/css" href="Style.css">
+  <link rel="stylesheet" type="text/css" href="stylegame.css">
   <link rel="stylesheet" type="text/css" href="animate.css">
   <script   src="http://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
@@ -62,9 +62,9 @@
 
                 </tbody>
               </table>
-            </p>
+              </p>
+            </div>
           </div>
-        </div>
 
         <script>
           var modal = document.getElementById('myModal');
@@ -235,6 +235,7 @@
         <div class="menu-wrap">
           <div class="menu-sidebar">
             <ul class="menu">
+              <div id="bottomshop">
 
 <!--
                 <li class="menu-item-has-children"><a href="#">Click The Arrow</a>
@@ -246,7 +247,7 @@
                     <li><a href="#">Comments</a></li>
                   </ul>
                 </li>
--->
+-->            </div>
             </ul>
           </div>
         </div>
@@ -255,35 +256,20 @@
       <script>
 
       var items = [
-        [0, "amuletcoin", 1250000 2, 5, 3], /* Id, name, price, clickrate, clickstrenght, critdmg */
-        [1, "amuletcoin", 1250000 2, 5, 3], /* Id, name, price, clickrate, clickstrenght, critdmg */
-        [2, "amuletcoin", 1250000 2, 5, 3], /* Id, name, price, clickrate, clickstrenght, critdmg */
-        [3, "amuletcoin", 1250000 2, 5, 3] /* Id, name, price, clickrate, clickstrenght, critdmg */
+        [0, "amuletcoin", 1250000, 2, 5, 3], /* Id, name, price, clickrate, clickstrenght, critdmg */
+        [1, "amuletcoin", 1250000, 2, 5, 3], /* Id, name, price, clickrate, clickstrenght, critdmg */
+        [2, "amuletcoin", 1250000, 2, 5, 3], /* Id, name, price, clickrate, clickstrenght, critdmg */
+        [3, "amuletcoin", 1250000, 2, 5, 3] /* Id, name, price, clickrate, clickstrenght, critdmg */
       ]
 
       var i = 0;
-      var text = "";
+      var texti = "";
 
       for (;items[i];) {
-          text += "<div class='item' style='background-image:url("+items[i][1]+".png)' id="+items[i][0]+"><div id='pokeprice' name='"+items[i][0]+"'>"+items[i][2]+"</div></div>";
-          var select = $("#specstable");
-          var tr = document.createElement('tr');
-          select.append(tr);
-          var itemname = document.createElement('td');
-          pokename.innerHTML = items[i][1];
-          var rate = document.createElement('td');
-          rate.innerHTML = pokemons[i][3];
-          tr.append(itemname);
-          var strength = document.createElement('td');
-          strength.innerHTML = pokemons[i][4];
-          var critdamage = document.createElement('td');
-          critdamage.innerHTML = pokemons[i][5];
-          tr.append(rate);
-          tr.append(strength);
-          tr.append(critdamage);
+          texti += "<div class='item' style='background-image:url("+items[i][1]+".png)' id="+items[i][0]+"><div id='pokeprice' name='"+items[i][0]+"'>"+items[i][2]+"</div></div>";
           i++
       }
-      document.getElementById("items").innerHTML = text;
+      document.getElementById("bottomshop").innerHTML = text;
       </script>
 
 </body>
