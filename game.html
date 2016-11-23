@@ -164,9 +164,9 @@
       var i = setInterval(function() {
         points += clickrate/10;
 
-        document.getElementById('maydiv').innerHTML = "<h2>Points: " +Math.round(points);
-        document.getElementById('ratediv').innerHTML = "<h2>Rate: " +Math.round(clickrate*10)+"/s";
-        document.getElementById('strengthdiv').innerHTML = "<h2>Strength: " +Math.round(clickstrenght);
+        document.getElementById('maydiv').innerHTML = "<h2>Points: " +Math.round(points * 100) / 100;
+        document.getElementById('ratediv').innerHTML = "<h2>Rate: " +Math.round(clickrate*10 * 100) / 100+"/s";
+        document.getElementById('strengthdiv').innerHTML = "<h2>Strength: " +Math.round(clickstrenght * 100) / 100;
         for(i = 0; i < pokemons.length; i++){
           $('.pokemon').find('#pokeprice').each(function() {
 
@@ -253,8 +253,37 @@
       </header>
 
       <script>
-      
 
+      var items = [
+        [0, "amuletcoin", 1250000 2, 5, 3], /* Id, name, price, clickrate, clickstrenght, critdmg */
+        [1, "amuletcoin", 1250000 2, 5, 3], /* Id, name, price, clickrate, clickstrenght, critdmg */
+        [2, "amuletcoin", 1250000 2, 5, 3], /* Id, name, price, clickrate, clickstrenght, critdmg */
+        [3, "amuletcoin", 1250000 2, 5, 3] /* Id, name, price, clickrate, clickstrenght, critdmg */
+      ]
+
+      var i = 0;
+      var text = "";
+
+      for (;items[i];) {
+          text += "<div class='item' style='background-image:url("+items[i][1]+".png)' id="+items[i][0]+"><div id='pokeprice' name='"+items[i][0]+"'>"+items[i][2]+"</div></div>";
+          var select = $("#specstable");
+          var tr = document.createElement('tr');
+          select.append(tr);
+          var itemname = document.createElement('td');
+          pokename.innerHTML = items[i][1];
+          var rate = document.createElement('td');
+          rate.innerHTML = pokemons[i][3];
+          tr.append(itemname);
+          var strength = document.createElement('td');
+          strength.innerHTML = pokemons[i][4];
+          var critdamage = document.createElement('td');
+          critdamage.innerHTML = pokemons[i][5];
+          tr.append(rate);
+          tr.append(strength);
+          tr.append(critdamage);
+          i++
+      }
+      document.getElementById("items").innerHTML = text;
       </script>
 
 </body>
